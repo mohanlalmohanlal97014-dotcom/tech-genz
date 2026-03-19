@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="min-height: 75vh"
+>
+  <div class="card card-custom p-4" style="max-width: 500px; width: 100%">
+    <h3 class="text-center mb-3">Add Company Profile</h3>
+    <p class="text-center text-muted">
+      Create your company profile to post internships
+    </p>
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label class="form-label">Company Name</label>
+        <input type="text" name="company_name" class="form-control" required />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Website</label>
+        <input
+          type="url"
+          name="website"
+          class="form-control"
+          placeholder="https://example.com"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea
+          name="description"
+          rows="4"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">
+        Register Company
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

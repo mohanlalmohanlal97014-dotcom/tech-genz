@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <a href="{% url 'student-dashboard' %}" class="btn btn-primary margin-custom"
+    >← BACK TO DASHBOARD</a
+  >
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card card-custom p-4">
+        <h3 class="text-center mb-4">Student Profile</h3>
+
+        <!-- Profile Photo -->
+
+        <div class="text-center mb-4">
+          {% if profile.profile_photo %}
+
+          <img
+            src="{{ profile.profile_photo.url }}"
+            class="rounded-circle mb-3"
+            width="120"
+            height="120"
+            style="object-fit: cover"
+          />
+
+          {% else %}
+
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+            class="rounded-circle mb-3"
+            width="120"
+          />
+
+          {% endif %}
+
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="file" name="profile_photo" class="form-control mb-2" />
+
+            <button type="submit" class="btn btn-primary btn-sm">
+              Upload Photo
+            </button>
+          </form>
+        </div>
+
+        <hr />
+
+        <div class="mb-3">
+          <strong>Name:</strong>
+          <p>{{ profile.name }}</p>
+        </div>
+
+        <div class="mb-3">
+          <strong>Username:</strong>
+          <p>{{ profile.user.username }}</p>
+        </div>
+
+        <div class="mb-3">
+          <strong>Email:</strong>
+          <p>{{ profile.user.email }}</p>
+        </div>
+
+        <div class="mb-3">
+          <strong>Phone Number:</strong>
+          <p>{{ profile.phoneNo }}</p>
+        </div>
+
+        <div class="mb-3">
+          <strong>Role:</strong>
+          <span class="badge bg-success">Student</span>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-primary w-100">Edit Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

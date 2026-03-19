@@ -1,0 +1,79 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card card-custom p-4">
+        <h3 class="text-center mb-4">Post New Internship</h3>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label class="form-label">Internship Title</label>
+            <input type="text" name="title" class="form-control" required />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Location</label>
+              <input
+                type="text"
+                name="location"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Duration</label>
+              <input
+                type="text"
+                name="duration"
+                class="form-control"
+                placeholder="3 Months"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Stipend</label>
+            <input
+              type="text"
+              name="stipend"
+              class="form-control"
+              placeholder="₹10,000/month"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea
+              name="description"
+              rows="5"
+              class="form-control"
+              required
+            ></textarea>
+          </div>
+
+           <div class="mb-3">
+            <label class="form-label">Skills Required</label>
+            <textarea
+              name="skills_required"
+              rows="auto"
+              class="form-control"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            Post Internship
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

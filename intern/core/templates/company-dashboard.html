@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2 class="text-center mb-5">
+  {% if company %} {{ company.company_name }} <br /><br />
+  {% endif %} Welcome {{ profile.name }} 👋
+</h2>
+
+<div class="row text-center">
+  <!-- Register Company Card -->
+  {% if not company %}
+  <h3 class="text-light text-center">First Register your Company HERE ⬇</h3>
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-6">
+      <div class="card card-custom p-3">
+        <h5>Register Company</h5>
+        <a href="{% url 'add-company' %}" class="btn btn-primary w-100">
+          Register
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- View Company Card -->
+  {% if company %}
+  <div class="col-md-4 mb-3">
+    <div class="card card-custom p-3">
+      <h5>View Company Profile</h5>
+      <a
+        href="{% url 'view-company-profile' company.profile.id %}"
+        class="btn btn-primary w-100"
+      >
+        View
+      </a>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Post Internship -->
+  {% if company %}
+  <div class="col-md-4 mb-3">
+    <div class="card card-custom p-3">
+      <h5>Post Internships</h5>
+      <a href="{% url 'post-internship' %}" class="btn btn-primary w-100"
+        >Post</a
+      >
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- View Applications -->
+  {% if company %}
+  <div class="col-md-4 mb-3">
+    <div class="card card-custom p-3">
+      <h5>View Applications</h5>
+      <a href="{% url 'view-applications' %}" class="btn btn-primary w-100"
+        >View Now</a
+      >
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

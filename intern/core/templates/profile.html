@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+<a href="{% url 'home' %}" class="btn btn-primary mb-3">← BACK TO HOME</a>
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card card-custom p-4">
+      <h2 class="text-center mb-3">Register</h2>
+
+      <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        <input
+          type="text"
+          name="name"
+          class="form-control mb-3"
+          placeholder="Your Name"
+        />
+        <input
+          type="email"
+          name="email"
+          class="form-control mb-3"
+          placeholder="Email"
+        />
+        <input
+          type="text"
+          name="username"
+          class="form-control mb-3"
+          placeholder="Username"
+        />
+        <input
+          type="password"
+          name="password"
+          class="form-control mb-3"
+          placeholder="Password"
+        />
+
+        <label>Role</label><br />
+        <input type="radio" name="role" value="user" /> User
+        <input type="radio" name="role" value="company" class="ms-3" /> Company
+
+        <input
+          type="text"
+          name="phoneNo"
+          class="form-control mt-3 mb-3"
+          placeholder="Phone Number"
+        />
+
+        <button class="btn btn-primary w-100">Register</button>
+      </form>
+
+      <p class="text-center mt-3">
+        Already have account? <a href="{% url 'login' %}">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

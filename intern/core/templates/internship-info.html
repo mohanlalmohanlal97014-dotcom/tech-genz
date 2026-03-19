@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container my-5">
+    <a href="{% url 'home' %}" class="btn btn-primary mb-4">
+      ← Back to HOME
+    </a><br><br>
+  <h2 class="text-center mb-5">Tech-Genz Internship Platform</h2>
+
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h4 class="text-primary mb-3">Find the Best Internship Opportunities</h4>
+
+      <p>
+        Tech-Genz provides a platform where students can discover internships
+        posted by verified companies.
+      </p>
+
+      <p>
+        Students can browse internships, check details such as location,
+        duration, stipend, and required skills.
+      </p>
+
+      <p>
+        After selecting a suitable internship, students can apply directly
+        through the portal by submitting their resume.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h5 class="mb-3">Student Features</h5>
+
+        <ul class="list-group">
+          <li class="list-group-item">Browse available internships</li>
+
+          <li class="list-group-item">Search by company and location</li>
+
+          <li class="list-group-item">Apply with resume</li>
+
+          <li class="list-group-item">Track application status</li>
+
+          <li class="list-group-item">Build professional experience</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

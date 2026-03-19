@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container my-5">
+  <a href="{% url 'home' %}" class="btn btn-primary mb-4"> ← Back to HOME </a
+  ><br /><br />
+  <h2 class="text-center mb-5">For Companies</h2>
+
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <div class="card shadow p-4">
+        <h5 class="mb-3">Company Features</h5>
+
+        <ul class="list-group">
+          <li class="list-group-item">Register company profile</li>
+
+          <li class="list-group-item">Post internship opportunities</li>
+
+          <li class="list-group-item">Manage internship listings</li>
+
+          <li class="list-group-item">View student applications</li>
+
+          <li class="list-group-item">Accept or reject candidates</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h4 class="text-success mb-3">Hire Talented Students</h4>
+
+      <p>
+        Tech-Genz allows companies to connect with talented students who are
+        eager to gain practical experience.
+      </p>
+
+      <p>
+        Companies can post internship opportunities and receive applications
+        from students across different domains.
+      </p>
+
+      <p>
+        Recruiters can review applications, check resumes, and select the best
+        candidates for their organization.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

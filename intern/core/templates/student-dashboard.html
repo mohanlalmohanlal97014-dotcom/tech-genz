@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% block content %}
+
+<h2 class="text-center mb-5">Welcome {{ profile.name }} 👋</h2>
+
+<div class="row text-center">
+  <div class="col-md-4 mb-3 lg-3">
+    <div class="card card-custom p-3">
+      <h5>My Profile</h5>
+      <a href="{% url 'student-profile' %}" class="btn btn-primary w-100"
+        >Open</a
+      >
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3 lg-3">
+    <div class="card card-custom p-3">
+      <h5>View Companies</h5>
+      <a href="{% url 'company-list' %}" class="btn btn-primary w-100">View</a>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3 lg-3">
+    <div class="card card-custom p-3">
+      <h5>Browse Internships</h5>
+      <a href="{% url 'internships' %}" class="btn btn-primary w-100"
+        >Explore Now</a
+      >
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3 lg-3">
+    <div class="card card-custom p-3">
+      <h5>My Applications</h5>
+      <a href="{% url 'my-applications' %}" class="btn btn-primary w-100"
+        >View</a
+      >
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

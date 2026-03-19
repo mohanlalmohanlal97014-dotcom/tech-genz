@@ -1,0 +1,94 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  .hero-section {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(-45deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: white;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .hero-btn {
+    padding: 12px 35px;
+    font-size: 18px;
+    border-radius: 30px;
+  }
+
+  .feature-card {
+    transition: 0.3s;
+    border-radius: 12px;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<div class="hero-section">
+  <div>
+    <h1 class="hero-title">Welcome to TECH-GENZ</h1>
+
+    <p class="lead mb-4">Find internships. Build skills. Start your career.</p>
+
+    <a href="{% url 'login' %}" class="btn btn-light hero-btn"> Login </a>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="text-center mb-5">Explore Our Platform</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card feature-card text-center p-4">
+        <h4>Internships</h4>
+        <p>Students can explore internships posted by companies.</p>
+        <a href="{% url 'internship-info' %}" class="btn btn-primary">
+          Learn More
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card feature-card text-center p-4">
+        <h4>For Companies</h4>
+        <p>Companies can post internships and hire talented students.</p>
+        <a href="{% url 'companies-info' %}" class="btn btn-success">
+          Learn More
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card feature-card text-center p-4">
+        <h4>Career Growth</h4>
+        <p>Gain real-world experience and build your professional career.</p>
+        <a href="#" class="btn btn-dark"> Explore </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

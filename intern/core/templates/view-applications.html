@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <a href="{% url 'company-dashboard' %}" class="btn btn-primary mb-4">
+      ← Back to Dashboard
+    </a><br>
+    <h2 class="text-center mb-5">Internship Applications</h2>
+
+    <div class="card card-custom p-4">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student</th>
+              <th>Internship</th>
+              <th>Resume</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for app in applications %}
+
+            <tr id="row-{{app.id}}">
+              <td>{{forloop.counter}}</td>
+
+              <td>{{app.student.name}}</td>
+
+              <td>{{app.internship.title}}</td>
+
+              <td>
+                <a
+                  href="{{app.resume.url}}"
+                  target="_blank"
+                  class="btn btn-sm btn-primary"
+                >
+                  View Resume
+                </a>
+              </td>
+
+              <td>
+                <span
+                  class="badge status-badge {% if app.status == 'Accepted' %}bg-success {% elif app.status == 'Rejected' %}bg-danger {% else %}bg-warning{% endif %}"
+                  id="status-{{app.id}}"
+                >
+                  {{app.status}}
+                </span>
+              </td>
+
+              <td>
+                {% if app.status == "Pending" %}
+
+                <a
+                  href="{% url 'update-application-status' app.id 'Accepted' %}"
+                  class="btn btn-success btn-sm"
+                >
+                  Accept
+                </a>
+
+                <a
+                  href="{% url 'update-application-status' app.id 'Rejected' %}"
+                  class="btn btn-danger btn-sm"
+                >
+                  Reject
+                </a>
+
+                {% elif app.status == "Accepted" %}
+
+                <span class="badge bg-success">Accepted</span>
+
+                {% elif app.status == "Rejected" %}
+
+                <span class="badge bg-danger">Rejected</span>
+
+                {% endif %}
+              </td>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>
